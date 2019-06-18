@@ -1,4 +1,3 @@
-//Basic JavaScript: Record Collection 
 // Setup
 var collection = {
     "2548": {
@@ -25,13 +24,23 @@ var collection = {
       "album": "ABBA Gold"
     }
 };
-// Keep a copy of the collection for tests
 var collectionCopy = JSON.parse(JSON.stringify(collection));
 
-// Only change code below this line
 function updateRecords(id, prop, value) {
-  
-  
+
+  if (prop != "tracks"){
+    if (value)  
+        collection[id["prop"]] = value;
+    else 
+        collection[id["prop"]].pop();
+  }      
+  else {
+      if (collection[id["prop"]].length == 0) {
+        collection[id["prop"]] = [];   
+      }
+      collection[id["prop"]].push(value);
+
+      }
   return collection;
 }
 
