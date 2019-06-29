@@ -6,22 +6,22 @@ var collection = {
   "2548": {
     "album": "Slippery When Wet",
     "artist": "Bon Jovi",
-    "tracks": [ 
-      "Let It Rock", 
-      "You Give Love a Bad Name" 
+    "tracks": [
+      "Let It Rock",
+      "You Give Love a Bad Name"
     ]
   },
   "2468": {
     "album": "1999",
     "artist": "Prince",
-    "tracks": [ 
-      "1999", 
-      "Little Red Corvette" 
+    "tracks": [
+      "1999",
+      "Little Red Corvette"
     ]
   },
   "1245": {
     "artist": "Robert Palmer",
-    "tracks": [ ]
+    "tracks": []
   },
   "5439": {
     "album": "ABBA Gold"
@@ -32,12 +32,12 @@ var collectionCopy = JSON.parse(JSON.stringify(collection));
 
 // Only change code below this line
 function updateRecords(id, prop, value) {
-  var temp = collection;  
+  var temp = collection;
   // ----> 1)se a prop não for tracks
-  if (prop != "tracks"){
-    if (value){
-      if (temp[id][prop]){
-        temp[id][prop] = value;  
+  if (prop != "tracks") {
+    if (value) {
+      if (temp[id][prop]) {
+        temp[id][prop] = value;
       }
       else {
         temp[id][prop] = "";
@@ -50,25 +50,23 @@ function updateRecords(id, prop, value) {
     }
   }
   // ----> 2)se a prop for tracks mas for vazio
-  else{
-    if (value){
-      if (temp[id]["tracks"]){
+  else {
+    if (value) {
+      if (temp[id]["tracks"]) {
         temp[id]["tracks"].push(value);
       }
-      else{
+      else {
         temp[id]["tracks"] = [];
         temp[id]["tracks"].push(value);
       }
     }
-    else{
+    else {
       delete temp[id]["tracks"];
     }
+  }
+  collection = temp;
 
-}
-  collection = temp; 
-  
-
-return collection;
+  return collection;
 }
 
 // Alter values below to test your code

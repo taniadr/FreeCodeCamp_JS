@@ -30,10 +30,10 @@ var collection = {
 };
 var collectionCopy = JSON.parse(JSON.stringify(collection));
 
-function addValueToProp(album, prop, value){
+function addValueToProp(album, prop, value) {
     var aux = collection;
-    if (prop == "tracks")  
-        aux[album]["tracks"].push(value); 
+    if (prop == "tracks")
+        aux[album]["tracks"].push(value);
     else
         aux[album][prop] = value;
     return aux;
@@ -54,15 +54,22 @@ function updateRecords(id, prop, value) {
                     temp[id][prop] = [];
                     temp[id]["tracks"].push(value);
                     break;
-                default :
+                default:
                     temp[id][prop] = "";
                     temp[id][prop] = value;
-            }       
+            }
         }
     }
     collection = temp;
     return collection;
 }
 
+/*  //Test Cases
 updateRecords(5439, "artist", "ABBA");
-console.log(collection);
+updateRecords(5439, "tracks", "Take a Chance on Me")
+updateRecords(2548, "artist", "")
+updateRecords(1245, "tracks", "Addicted to Love")
+updateRecords(2468, "tracks", "Free")
+updateRecords(2548, "tracks", "")
+updateRecords(1245, "album", "Riptide")
+*/
