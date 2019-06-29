@@ -40,3 +40,15 @@ var arr = [
       console.log(arr[i][j]);
     }
   }
+//Looping nest
+
+  var myPons = [
+    [1, "tania"], [2, "dias"], [3, "ribeiro"]
+  ];
+
+  for (var x = 0; x < myPons.length; x++){
+      for (var y=0; y < myPons[x].length; y++){
+          console.log("myPons[" + x +
+          "][" + y + "]: " + myPons[x][y]);
+      }
+  }
