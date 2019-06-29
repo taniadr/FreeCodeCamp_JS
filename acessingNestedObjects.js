@@ -32,30 +32,39 @@ var collectionCopy = JSON.parse(JSON.stringify(collection));
 
 // Only change code below this line
 function updateRecords(id, prop, value) {
-  
-  var temp = collection;
-  
+  var temp = collection;  
   // ----> 1)se a prop não for tracks
   if (prop != "tracks"){
-    if (temp[id.prop])
-    {
-      temp[id.prop] = value;  
+    if (value){
+      if (temp[id][prop]){
+        temp[id][prop] = value;  
+      }
+      else {
+        temp[id][prop] = "";
+        temp[id][prop] = value;
+      }
     }
     else {
-      temp[id][prop] = "";
-      temp[id][prop] = value;
+      //temp[id][prop] = "";
+      delete temp[id][prop];
     }
-    
   }
-  else if (prop == "tracks")
-  {
-    // ----> 2)se a prop for tracks mas for vazio
-    if (temp.id.length == 0)
-    {
-      temp.id.tracks = [];
+  // ----> 2)se a prop for tracks mas for vazio
+  else{
+    if (value){
+      if (temp[id]["tracks"]){
+        temp[id]["tracks"].push(value);
+      }
+      else{
+        temp[id]["tracks"] = [];
+        temp[id]["tracks"].push(value);
+      }
     }
-    temp.id.tracks.push(value);
-  }
+    else{
+      delete temp[id]["tracks"];
+    }
+
+}
   collection = temp; 
   
 
